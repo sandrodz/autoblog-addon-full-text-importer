@@ -18,7 +18,7 @@ class Full_Text_Importer extends Autoblog_Addon {
 	 */
 	public function __construct() {
 		parent::__construct();
-        $this->_add_filter( 'autoblog_post_content_before_import', 'get_full_text', 9, 3 );
+        	$this->_add_filter( 'autoblog_post_content_before_import', 'get_full_text', 9, 3 );
 		$this->_add_action( 'autoblog_feed_edit_form_end', 'add_feed_option', 12, 2 );
 	}
 
