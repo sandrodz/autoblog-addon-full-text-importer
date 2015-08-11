@@ -9,18 +9,18 @@ Author URI: http://weare.de.com
 
 class Full_Text_Importer extends Autoblog_Addon {
 
-	/**
-	 * Constructor.
-	 *
-	 * @since 4.1
-	 *
-	 * @access public
-	 */
-	public function __construct() {
-		parent::__construct();
-        	$this->_add_filter( 'autoblog_post_content_before_import', 'get_full_text', 9, 3 );
-		$this->_add_action( 'autoblog_feed_edit_form_end', 'add_feed_option', 12, 2 );
-	}
+    /**
+     * Constructor.
+     *
+     * @since 4.1
+     *
+     * @access public
+     */
+    public function __construct() {
+        parent::__construct();
+        $this->_add_filter( 'autoblog_post_content_before_import', 'get_full_text', 12, 3 );
+        $this->_add_action( 'autoblog_feed_edit_form_end', 'add_feed_option', 12, 2 );
+    }
 
     function get_full_text( $old_content, $details, SimplePie_Item $item ) {
 
