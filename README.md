@@ -1,6 +1,6 @@
 ##Autoblog addon: Full Text Importer
 
-This plugin follows the article link, parses it, matches selector and grabs content.
+This plugin follows the article link to full article, parses it, matches selector and grabs content.
 
 Content area can be selected (matched) via .class or #id.
 
