@@ -1,8 +1,10 @@
 ##Autoblog addon: Full Text Importer
 
-Content area can be selected via .class or #id.
+This plugin follows the article link, parses it, matches selector and grabs content.
 
-Autoblog plugin: https://premium.wpmudev.org/project/autoblog/
+Content area can be selected (matched) via .class or #id.
+
+This is addon for: https://premium.wpmudev.org/project/autoblog/
 
 #Instructions
 
