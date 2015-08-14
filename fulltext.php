@@ -35,12 +35,20 @@ class Full_Text_Importer extends Autoblog_Addon {
         $can_use_dom             = @$doc->loadHTMLFile( mb_convert_encoding( $source_url, 'HTML-ENTITIES', 'UTF-8' ) );
         $doc->preserveWhiteSpace = false;
 
-            while ( ( $r = $doc->getElementsByTagName( 'script' ) ) && $r->length ) {
-                $r->item(0)->parentNode->removeChild( $r->item(0) );
-            }
-
         $finder                  = new DOMXPath( $doc );
-        $node                    = $finder->query( "//*[contains(concat(' ', normalize-space(@class), ' '), ' $classname ')]" );
+
+        if ( isset( $details['textcontainerisid'] ) && $details['textcontainerisid'] == 1 )
+        {
+            $node = $finder->query( "//*[@id='" . $classname . "']" );
+        }
+        else
+        {
+            $node = $finder->query( "//*[contains(concat(' ', normalize-space(@class), ' '), ' $classname ')]" );
+        }
+        
+        while ( ( $r = $doc->getElementsByTagName( 'script' ) ) && $r->length ) {
+            $r->item(0)->parentNode->removeChild( $r->item(0) );
+        }
 
         return $doc->saveHTML( $node->item(0) );
     }
@@ -69,6 +77,11 @@ class Full_Text_Importer extends Autoblog_Addon {
         $this->_render_block_element( esc_html__( 'Text container class', 'autoblogtext' ), sprintf(
             '<input type="text" class="long field" name="abtble[textcontainerclass]" value="%s">',
             esc_attr( stripslashes( $table['textcontainerclass'] ) )
+        ) );
+
+        $this->_render_block_element( esc_html__( 'Search for #id instead of .class', 'autoblogtext' ), sprintf(
+            '<input type="checkbox" name="abtble[textcontainerisid]" value="1"%s>',
+            checked( isset( $table['textcontainerisid'] ) && $table['textcontainerisid'] == '1', true, false )
         ) );
     }
 
