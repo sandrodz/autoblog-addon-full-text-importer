@@ -9,3 +9,5 @@ This is addon for: https://premium.wpmudev.org/project/autoblog/
 #Instructions
 
 1. easy peasy, just put this file in `addons` directory
+2. activate it from addons setting page
+3. new options will be visible while creating a new feed
