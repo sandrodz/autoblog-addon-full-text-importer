@@ -6,4 +6,4 @@ Autoblog plugin: https://premium.wpmudev.org/project/autoblog/
 
 #Instructions
 
-1. easy peasy, just put this fine in `addons` directory
+1. easy peasy, just put this file in `addons` directory
